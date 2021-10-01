@@ -19,8 +19,5 @@ int main()
    printf("Result Y= %f\n", result);
 
 
-
-
-
     return 0;
 }
