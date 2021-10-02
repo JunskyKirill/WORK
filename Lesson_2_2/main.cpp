@@ -39,19 +39,11 @@ int main()
 
      printf("Result Square %f\n", sd);
 
-     if (sr>sa & sr>sd){
-         printf("S of Circle won!");
 
-     }
-
-     if (sa>sr & sa>sd){
-         printf("S of Triangle won!");
-     }
+     sr > sa & sr > sd ? printf("S of Circle lager!") : sa > sd ?   printf("S of Triangle lager!") : printf("S of Square lager!");
 
 
-     if (sd>sr & sd>sa){
-         printf("S of Square won!");
-     }
+
 
 
 
