@@ -40,11 +40,7 @@ int main()
      printf("Result Square %f\n", sd);
 
 
-     sr > sa & sr > sd ? printf("S of Circle lager!") : sa > sd ?   printf("S of Triangle lager!") : printf("S of Square lager!");
-
-
-
-
+     (sr > sa & sr > sd) ? printf("S of Circle lager!") : sa > sd ?  printf("S of Triangle lager!") : printf("S of Square lager!");
 
 
 
