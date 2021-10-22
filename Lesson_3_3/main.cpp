@@ -1,45 +1,30 @@
-// Найти наименьший общий делитель трех натуральных чисел
+//
 
 #include <stdio.h>
 #include <math.h>
 
-
 int main()
 {
-    int n1,n2,n3;
+    int input ;
+    printf("Please enter numbers: \n");
+    scanf ("%d", &input);
 
-    printf("Please enter n1 : \n");
-    scanf ("%d", &n1);
-    printf("Please enter n2 : \n");
-    scanf ("%d", &n2);
-    printf("Please enter n3 : \n");
-    scanf ("%d", &n3);
-
-    int inputedMin = n1 > n2 ? (n2 > n3 ? n3 : n2) : (n1 > n3 ? n3 : n1); // Минимальное введенное число
-    bool hasCommonDiv; // Найден ли общий наименьший делитель
-    int div = 2; // общий наименьший делитель
-
-
-    while (div <= inputedMin && !hasCommonDiv)
+    int result[] = { -1, -1, -1, -1, };
+    while (input != 0)
     {
-        hasCommonDiv = n1 % div == 0 && n2 % div == 0 && n3 % div == 0;
-        if (hasCommonDiv)
-        {
-            break;
-        }
-
-        ++div;
+        int mod = input % 10;
+        input /= 10;
+        int i = 0;
+        while (mod < result[i])
+            ++i;
+        for (int j = 2; j >= i; --j)
+            result[j + 1] = result[j];
+        result[i] = mod;
     }
-
-    if (!hasCommonDiv)
+    for(int i = 0; i < 4; ++i)
     {
-        div = 1;
+
+    printf("%d", result[i]);
     }
-
-
-    printf("Min divider = %d", div);
-
-
-
     return 0;
 }
