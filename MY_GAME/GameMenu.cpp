@@ -22,9 +22,26 @@ void GameMenu::PrintMenu(int score, bool isGameOver)
     system("cls"); // очищаем экран
     if (isGameOver)
     {
-       cout << "SCORE "<< score << endl;
+       cout << endl;
+       cout << endl;
+       cout << "YOU LOOSE"<< endl;
+       cout << endl;
+       cout << "YOUR SCORE IS : "<< score << endl;
+       cout << endl;
+       cout << endl;
+       cout << "1. TRY AGAIN" << endl;
     }
-    cout << "1. NEW GAME" << endl;
+
+    if(!isGameOver)
+
+        cout << endl;
+        cout << endl;
+        cout << "1. NEW GAME" << endl;
     cout << "2. EXIT" << endl;
+    cout << endl;
+    cout << endl;
+    cout << "(C) All Rights Reserved";
+    cout << endl;
+    cout << endl;
     cout << ">";
 }

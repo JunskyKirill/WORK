@@ -17,14 +17,16 @@ void Game::Start()
 
         start_color();
         init_pair(1, COLOR_WHITE, COLOR_WHITE);
-        init_pair(2, COLOR_RED, COLOR_BLACK);
-        init_pair(3, COLOR_YELLOW, COLOR_BLACK);
-        init_pair(4, COLOR_CYAN, COLOR_BLACK);
+        init_pair(2, COLOR_BLACK, COLOR_GREEN);
+        init_pair(3, COLOR_GREEN, COLOR_GREEN);
+        init_pair(4, COLOR_MAGENTA, COLOR_YELLOW);
+        init_pair(5, COLOR_WHITE, COLOR_BLACK);
+        init_pair(6, COLOR_BLACK, COLOR_BLACK);
 
 
-        snake.tail[0] = { 10, 10 };
-        snake.tail[1] = { 10, 11 };
-        snake.tail[2] = { 10, 12 };
+        snake.tail[0] = { 34, 10 };
+        snake.tail[1] = { 34, 11 };
+        snake.tail[2] = { 34, 12 };
         snake.size = 3;
 
         x = snake.tail[0].x;
@@ -60,7 +62,7 @@ void Game::ShowMenu()
 void Game::Setup()
 {
     gameOver = false;
-    dir = STOP;
+    dir = UP;
     score = 0;
 }
 
@@ -77,14 +79,14 @@ void Game::Draw()
         }
     }
     color_set(2, nullptr);
-    mvaddch(snake.tail[0].y, snake.tail[0].x, 'O');
+    mvaddch(snake.tail[0].y, snake.tail[0].x, '8');
 
     color_set(3, nullptr);
     for (int i = 1; i < snake.size; ++i)
     {
         mvaddch(snake.tail[i].y, snake.tail[i].x, 'o');
     }
-
+    color_set(6,nullptr);
     if (snake.lastPoint.x != 0 && snake.lastPoint.y != 0)
     {
         mvaddch(snake.lastPoint.y, snake.lastPoint.x, ' ');
@@ -93,9 +95,11 @@ void Game::Draw()
     color_set(4, nullptr);
     if (fruit.x != 0 && fruit.y != 0)
     {
-        mvaddch(fruit.y, fruit.x, 'F');
+        mvaddch(fruit.y, fruit.x, ' ');
     }
+    color_set(5,nullptr);
     mvaddstr(21,10,("Score: " + to_string(score)).c_str());
+
 }
 
 void Game::Input()
@@ -131,6 +135,8 @@ void Game::Logic()
 {
     switch (dir)
     {
+    case STOP:
+        break;
     case LEFT:
         x--;
         break;
