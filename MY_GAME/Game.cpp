@@ -2,9 +2,6 @@
 #include <curses.h>
 #include <time.h>
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <math.h>
 using namespace std;
 
 void Game::Start()
