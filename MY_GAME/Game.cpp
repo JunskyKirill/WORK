@@ -27,7 +27,7 @@ void Game::Start()
         snake.tail[0] = { 34, 10 };
         snake.tail[1] = { 34, 11 };
         snake.tail[2] = { 34, 12 };
-        snake.size = 3;
+        snake.size    = 3;
 
         x = snake.tail[0].x;
         y = snake.tail[0].y;
@@ -62,8 +62,8 @@ void Game::ShowMenu()
 void Game::Setup()
 {
     gameOver = false;
-    dir = UP;
-    score = 0;
+    dir      = UP;
+    score    = 0;
 }
 
 void Game::Draw()
@@ -104,7 +104,7 @@ void Game::Draw()
 
 void Game::Input()
 {
-    auto input = getch();
+    int input = getch();
     if (input == 27)
     {
      gameOver = true;
@@ -152,12 +152,12 @@ void Game::Logic()
     }
 
 
-    Point prev = snake.tail[0];
-    snake.tail[0] = { x, y };
+    Point prev      = snake.tail[0];
+    snake.tail[0]   = { x, y };
     for (int i = 1; i < snake.size; i++){
-        Point prev2 = snake.tail[i];
+        Point prev2   = snake.tail[i];
         snake.tail[i] = prev;
-        prev = prev2;
+        prev          = prev2;
     }
 
     snake.lastPoint = prev;

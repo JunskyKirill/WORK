@@ -19,13 +19,17 @@ enum eDirection{ STOP = 0, LEFT, RIGHT, UP, DOWN};
 
 class Game
 {
+public :
+    void Start();
+
+private:
     using Fruit = Point;
-    Fruit fruit = {0 , 0};
+    Fruit fruit      = {0 , 0};
     Snake snake;
-    private : bool gameOver;
-    private : const int width = 70;
-    private : const int height = 20;
-    private : int x, y, score;
+    bool gameOver;
+    const int width  = 70;
+    const int height = 20;
+    int x, y, score;
     eDirection dir;
     GameMenu menu;
     int selectedMenuVariant;
@@ -36,7 +40,6 @@ class Game
     void Input();
     void Logic();
 
-    public : void Start();
 };
 
 
